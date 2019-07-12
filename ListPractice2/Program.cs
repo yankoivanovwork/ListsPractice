@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test_Practice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<double> numbers = Console.ReadLine().Split().Select(double.Parse).ToList();
+
+            for (int i = 0, j = numbers.Count - 1; i < j; i++, j--)
+            {
+                numbers[i] += numbers.ElementAtOrDefault(j);
+                numbers.RemoveAt(j);
+            }
+
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                Console.Write(numbers.ElementAtOrDefault(i));
+                if (i < numbers.Count - 1)
+                {
+                    Console.Write(" ");
+                }
+            }
+            Console.WriteLine();
+        }
+    }
+}
